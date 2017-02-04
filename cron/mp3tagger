@@ -11,6 +11,7 @@ php collectors/compilationcollector.php >> ${LOGPATH}
 php collectors/soundtrackcollector.php >> ${LOGPATH}
 php collectors/taggedcollector.php >> ${LOGPATH}
 php collectors/fullalbumcollector.php >> ${LOGPATH}
+collectors/buildsearchindex.sh >> ${LOGPATH}
 
 tools/updatesearch
 
