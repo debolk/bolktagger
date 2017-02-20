@@ -2,6 +2,8 @@
 cd `dirname \`dirname $0\``
 LOGPATH=`tools/setting LogPath`
 
+[ ! -d /var/run/bolktagger ] && mkdir /var/run/bolktagger
+
 php taggers/albumtagger.php >> ${LOGPATH}
 php taggers/playlisttagger.php >> ${LOGPATH}
 php processors/recordprocessor.php >> ${LOGPATH}
@@ -17,4 +19,4 @@ tools/updatesearch
 
 php test/checkrecords.php
 php test/checkreleases.php
-php test/checkalbums.php
+hp test/checkalbums.php
