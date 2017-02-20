@@ -11,7 +11,8 @@ class Musicbrainz
 
 		self::$curl = curl_init(self::endpoint);
 		curl_setopt(self::$curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt(self::$curl, CURLOPT_USERAGENT, 'BolkTagger/' . Settings::Version . ' ( ' . Settings::Email . ' )' );
+        curl_setopt(self::$curl, CURLOPT_USERAGENT, 'BolkTagger/' . Settings::Version . ' ( ' . Settings::Email . ' )' );
+        curl_setopt(self::$curl, CURLOPT_FOLLOWLOCATION, true);
 	}
 
 	static function GetAlbumMetadata($albummbid)
@@ -136,7 +137,7 @@ class Musicbrainz
 	}
 
 	static function ParseRecordInfo($xml)
-	{
+    {
 		$xml = simplexml_load_string($xml);
 		$r = $xml->{'recording'};
 		if(!$r)
